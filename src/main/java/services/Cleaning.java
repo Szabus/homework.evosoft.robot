@@ -6,6 +6,9 @@ import models.VacuumCleaner;
 
 public class Cleaning {
 
+    public Cleaning() {
+    }
+
     public void cleanAll(VacuumCleaner vacuumCleaner, Room room) {
         vacuumCleaner.setMove(true);
         moveRobot(0, 0, vacuumCleaner, room, 0);

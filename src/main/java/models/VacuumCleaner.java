@@ -8,25 +8,16 @@ public class VacuumCleaner {
     private long serialNumber;
     private boolean move;
     //UP, RIGHT, DOWN, LEFT
-    private final int[][] moving = {{-1, 0}, {0, 1}, {1, 0}, {0, 1}};
+    private final int[][] moving = {{-1, 0}, {0, 1}, {1, 0}, {0, -1}};
     private Direction direction;
     private int[][] roomMap;
     private Set<String> isAlreadyCleaned = new HashSet<>();
 
-    public VacuumCleaner() {
-    }
 
     public VacuumCleaner(int[][] roomMap) {
         this.roomMap = roomMap;
     }
 
-    public long getSerialNumber() {
-        return serialNumber;
-    }
-
-    public void setSerialNumber(long serialNumber) {
-        this.serialNumber = serialNumber;
-    }
 
     public boolean isMove(int row, int col, int height, int weight, int[][] map) {
         return height > row && weight > col && col >= 0 && row >= 0 && map[row][col] != 1;
@@ -39,7 +30,6 @@ public class VacuumCleaner {
     public int[][] getMoving() {
         return moving;
     }
-
 
     public Direction getDirection() {
         return direction;
@@ -61,9 +51,6 @@ public class VacuumCleaner {
         return roomMap;
     }
 
-    public void setRoomMap(int[][] roomMap) {
-        this.roomMap = roomMap;
-    }
 
     public void cleanPieces(int row, int col) {
         if (getRoomMap()[row][col] != 1) {
